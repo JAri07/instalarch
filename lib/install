@@ -394,6 +394,7 @@ install () {
   barra_progreso
   echo -e ""
   echo -e ""
+  echo $PWD
   source lib/video
   installvideo
 

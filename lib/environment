@@ -178,7 +178,7 @@ environment () {
                     cmd=(dialog --keep-tite --backtitle "${title}" \
                     --no-collapse --cr-wrap --column-separator "|" --no-tags \
                     --ok-label '< Seleccionar >' --nocancel --menu "\n \
-                    Selecciona una opción para KDE Plasma \n " 12 60 20)
+                    Selecciona una opción para Awesome \n " 12 60 20)
 
                     options=(1 "   Awesome || Without configuration  "
                              2 "   Awesome || Yoru       "
@@ -233,94 +233,6 @@ installenvironment () {
       echo "Se esta instalando el entorno TTY:" 
       echo "" 
       arch-chroot /mnt /bin/bash -c "pacman -Syu --noconfirm"
-      ;;
-
-    "Xfce4 Arcris")
-      echo "" 
-      echo "Se esta instalando el entorno Xfce4:" 
-      echo "" 
-
-      arch-chroot /mnt /bin/bash -c "pacman -S xorg --noconfirm"
-      arch-chroot /mnt /bin/bash -c "pacman -S xorg-apps --noconfirm"
-      arch-chroot /mnt /bin/bash -c "pacman -S xorg-server --noconfirm"
-      arch-chroot /mnt /bin/bash -c "pacman -S xorg-xinit --noconfirm"
-      arch-chroot /mnt /bin/bash -c "pacman -S xorg-twm --noconfirm"
-      arch-chroot /mnt /bin/bash -c "pacman -S xterm --noconfirm"
-
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S xfce4 --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S xfce4-goodies --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S network-manager-applet --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm-gtk-greeter --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm-gtk-greeter-settings --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S light-locker --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S accountsservice --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S mugshot --noeditmenu --noconfirm --needed"
-     
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S gnu-free-fonts --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ttf-hack --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ttf-inconsolata --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ttf-font-awesome --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S awesome-terminal-fonts --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S noto-fonts --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S noto-fonts-emoji --noeditmenu --noconfirm --needed"
-      
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ffmpegthumbs --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ffmpegthumbnailer --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S freetype2 --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S poppler-glib --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S libgsf --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S raw-thumbnailer --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S libgsf --noeditmenu --noconfirm --needed"
-
-      arch-chroot /mnt /bin/bash -c "systemctl enable lightdm"
-
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S plata-theme-bin --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S papirus-icon-theme --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S gtk-engine-murrine --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S ttf-roboto --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S pavucontrol --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S gedit --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S gedit-plugins --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S plank --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S plank-theme-namor --noeditmenu --noconfirm --needed"
-
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google gst-libav dosfstools f2fs-tools ntfs-3g udftools nilfs-utils polkit gpart mtools cifs-utils --noeditmenu --noconfirm --needed"
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S wget unzip zip --noeditmenu --noconfirm --needed"
-
-      clear
-
-      arch-chroot /mnt /bin/bash -c "wget https://raw.githubusercontent.com/CodigoCristo/themexfce4/master/configxfce4.zip -P /home/$username/"
-      # arch-chroot /mnt /bin/bash -c "rm -r /home/$username/.config"
-      ls --all /home/$username
-      echo ""
-      sleep 10
-      arch-chroot /mnt /bin/bash -c "unzip -o /home/$username/configxfce4.zip -d /home/$username/"
-      arch-chroot /mnt /bin/bash -c "rm /home/$username/configxfce4.zip"
-      arch-chroot /mnt /bin/bash -c "chown -R $username:users /home/$username/.config/"
-      echo ""
-      sleep 10
-
-      arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm-webkit2-greeter --noeditmenu --noconfirm --needed"
-
-      arch-chroot /mnt /bin/bash -c "wget https://raw.githubusercontent.com/CodigoCristo/themexfce4/master/glorius.zip -P /home/$username/"
-      echo ""
-      sleep 10
-      arch-chroot /mnt /bin/bash -c "unzip -o /home/$username/glorius.zip -d /usr/share/lightdm-webkit/themes/"
-      arch-chroot /mnt /bin/bash -c "rm /home/$username/glorius.zip"
-
-      sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = glorious #\1/g' /mnt/etc/lightdm/lightdm-webkit2-greeter.conf
-      sed -i 's/^debug_mode\s*=\s*\(.*\)/debug_mode = true #\1/g' /mnt/etc/lightdm/lightdm-webkit2-greeter.conf
-      sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-webkit2-greeter/g' /mnt/etc/lightdm/lightdm.conf
-
-      # Comprimir un directorio
-      # zip sampleZipFile.zip -r /sampleZip/ExampleDir
-
-      # para sobreescribir archivos
-      # unzip -o sampleZipFile.zip 
-
-      # Descomprimir un archivo a un directorio diferente
-      # unzip sampleZipFile.zip -d /usr/sampleZip/ExampleDir
       ;;
 
     "Xfce4")
@@ -1040,11 +952,11 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "sudo -u $username paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
     arch-chroot /mnt /bin/bash -c "systemctl --user enable mpd.service"
     arch-chroot /mnt /bin/bash -c "systemctl --user start mpd.service"
-    git clone --depth 1 --recurse-submodules https://github.com/rxyhn/yoru.git
-    cd yoru && git submodule update --remote --merge
-    cp -r config/* /mnt/home/$username/.config/
-    cd ..
-    rm -Rf yoru
+    arch-chroot /mnt /bin/bash -c "git clone --depth 1 --recurse-submodules https://github.com/rxyhn/yoru.git"
+    arch-chroot /mnt /bin/bash -c "cd yoru && git submodule update --remote --merge"
+    arch-chroot /mnt /bin/bash -c "cp -r config/* /mnt/home/$username/.config/"
+    arch-chroot /mnt /bin/bash -c "cd .."
+    arch-chroot /mnt /bin/bash -c "rm -Rf yoru"
 
     arch-chroot /mnt /bin/bash -c "pacman -S network-manager-applet --noconfirm --needed"
 
@@ -1071,11 +983,11 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "sudo -u $username paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
     arch-chroot /mnt /bin/bash -c "systemctl --user enable mpd.service"
     arch-chroot /mnt /bin/bash -c "systemctl --user start mpd.service"
-    git clone --depth 1 --recurse-submodules https://github.com/JAri07/yoru.git
-    cd yoru && git submodule update --remote --merge
-    cp -r config/* /mnt/home/$username/.config/
-    cd ..
-    rm -Rf yoru
+    arch-chroot /mnt /bin/bash -c "git clone --depth 1 --recurse-submodules https://github.com/JAri07/yoru.git"
+    arch-chroot /mnt /bin/bash -c "cd yoru && git submodule update --remote --merge"
+    arch-chroot /mnt /bin/bash -c "cp -r config/* /mnt/home/$username/.config/"
+    arch-chroot /mnt /bin/bash -c "cd .."
+    arch-chroot /mnt /bin/bash -c "rm -Rf yoru"
 
     arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm-webkit-theme-aether-gitlightdm-webkit-theme-aether-git"
     arch-chroot /mnt /bin/bash -c "systemctl enable lightdm"

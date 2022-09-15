@@ -97,21 +97,21 @@ installshell () {
   cp mirrorupgrade.hook /mnt/etc/pacman.d/hooks/mirrorupgrade.hook 
   chmod +x /mnt/etc/pacman.d/hooks/mirrorupgrade.hook
   # Install powerlevel10k
-  mkdir -p /mnt/root/.config
-  mkdir -p /mnt/home/$username/.config
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git 
-  cp -r powerlevel10k /mnt/home/$username/.config/powerlevel10k
-  cp -r powerlevel10k /mnt/root/.config/powerlevel10k
-  rm -Rf powerlevel10k
+  arch-chroot /mnt /bin/bash -c "mkdir -p /mnt/root/.config"
+  arch-chroot /mnt /bin/bash -c "mkdir -p /mnt/home/$username/.config"
+  arch-chroot /mnt /bin/bash -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git"
+  arch-chroot /mnt /bin/bash -c "cp -r powerlevel10k /mnt/home/$username/.config/powerlevel10k"
+  arch-chroot /mnt /bin/bash -c "cp -r powerlevel10k /mnt/root/.config/powerlevel10k"
+  arch-chroot /mnt /bin/bash -c "rm -Rf powerlevel10k"
   # Configure dotfiles
-  git clone https://github.com/JAri07/dotfiles.git
-  mkdir -p /mnt/home/$username/.local/fonts
-  cp -r dotfiles/user/.local/fonts/* /mnt/home/$username/.local/fonts
-  cp dotfiles/user/.zshrc /mnt/home/$username/.zshrc
-  cp dotfiles/user/.p10k.zsh /mnt/home/$username/.p10k.zsh
-  cp dotfiles/root/.zshrc /mnt/root/.zshrc
-  cp dotfiles/root/.p10k.zsh /mnt/root/.p10k.zsh
-  rm -Rf dotfiles
+  arch-chroot /mnt /bin/bash -c "git clone https://github.com/JAri07/dotfiles.git"
+  arch-chroot /mnt /bin/bash -c "mkdir -p /mnt/home/$username/.local/fonts"
+  arch-chroot /mnt /bin/bash -c "cp -r dotfiles/user/.local/fonts/* /mnt/home/$username/.local/fonts"
+  arch-chroot /mnt /bin/bash -c "cp dotfiles/user/.zshrc /mnt/home/$username/.zshrc"
+  arch-chroot /mnt /bin/bash -c "cp dotfiles/user/.p10k.zsh /mnt/home/$username/.p10k.zsh"
+  arch-chroot /mnt /bin/bash -c "cp dotfiles/root/.zshrc /mnt/root/.zshrc"
+  arch-chroot /mnt /bin/bash -c "cp dotfiles/root/.p10k.zsh /mnt/root/.p10k.zsh"
+  arch-chroot /mnt /bin/bash -c "rm -Rf dotfiles"
   arch-chroot /mnt /bin/bash -c "chown -hR $username:users /home/$username/.zshrc"
   arch-chroot /mnt /bin/bash -c "chown -hR $username:users /home/$username/.p10k.zsh"
 }
