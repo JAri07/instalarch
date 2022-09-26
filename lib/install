@@ -389,6 +389,15 @@ install () {
   installenvironment
   clear
 
+  ## LOGIN MANAGER 
+  titulo_progreso="| Instalando Administrador de Login |"
+  barra_progreso
+  echo -e ""
+  echo -e ""
+  source lib/loginmanager
+  installLoginManager
+  clear
+
   ## DRIVERS DE VIDEO
   titulo_progreso="| Instalando driver de Vídeo |"
   barra_progreso

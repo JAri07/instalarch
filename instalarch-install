@@ -76,8 +76,9 @@ main () {
                 7 "${menu7} ${submenu7}" 
                 8 "${menu8} ${submenu8}" 
                 9 "${menu9} ${submenu9}" 
-                10 "${menu10}" 
-                11 "${menu11}"  )
+                10 "${menu10} ${submenu10}" 
+                11 "${menu11}" 
+                12 "${menu12}"  )
 
     choices=$("${menuprincipal[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
@@ -133,19 +134,22 @@ main () {
             ;;
 
           9)
+            source lib/loginmanager
+            loginManager
+          10)
             source lib/extras
             extraprogram
             current_item="10"
             ;;
 
-          10)
+          11)
             source lib/install
             install
             ;;
 
-          11)
+          12)
             cd 
-            rm -r arcris
+            rm -r instalarch
             clear && echo "" 
             echo -e ""
             echo -e "${msg_end}"
