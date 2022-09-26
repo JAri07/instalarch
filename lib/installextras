@@ -274,7 +274,7 @@ extrasinstall () {
   fi
 
   if [ "$EDITOR1_2" == "true" ]; then
-    arch-chroot /mnt /bin/bash -c "sudo pacman -S base-devel cmake unzip ninja tree-sitter curl --noconfirm"
+    arch-chroot /mnt /bin/bash -c "sudo pacman -S base-devel cmake unzip ninja tree-sitter curl luarocks --noconfirm"
     arch-chroot /mnt /bin/bash -c "git clone https://github.com/neovim/neovim"
     arch-chroot /mnt /bin/bash -c "cd neovim && make CMAKE_BUILD_TYPE=Release"
     arch-chroot /mnt /bin/bash -c "sudo make install"

@@ -266,11 +266,6 @@ install () {
   echo ""
   arch-chroot /mnt /bin/bash -c "pacman -Syu --noconfirm"
   echo ""
-  echo " Agregando Repositorio de Arcris :"
-  echo ""
-  cp pacman.conf /mnt/etc/pacman.conf
-  arch-chroot /mnt /bin/bash -c "pacman -Syu --noconfirm"
-  arch-chroot /mnt /bin/bash -c "pacman -Syu --noconfirm"
   clear
 
   titulo_progreso="| Archivo FSTAB |"
