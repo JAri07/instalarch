@@ -959,8 +959,6 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "rm -Rf yoru"
 
     arch-chroot /mnt /bin/bash -c "pacman -S network-manager-applet --noconfirm --needed"
-
-    arch-chroot /mnt /bin/bash -c "systemctl enable ly"
     ;;
 
   "awesome Yoru custom")
@@ -989,10 +987,6 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "cp -r config/* /mnt/home/$username/.config/"
     arch-chroot /mnt /bin/bash -c "cd .."
     arch-chroot /mnt /bin/bash -c "rm -Rf yoru"
-
-    arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S lightdm lightdm-webkit2-greeter lightdm-webkit-theme-aether --noconfirm"
-    arch-chroot /mnt /bin/bash -c "sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf"
-    arch-chroot /mnt /bin/bash -c "systemctl enable lightdm"
     ;;
 
   "openbox")
