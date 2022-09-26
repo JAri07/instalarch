@@ -269,8 +269,15 @@ extrasinstall () {
     arch-chroot /mnt /bin/bash -c "pacman -S kitty --noconfirm"
   fi
 
-  if [ "$EDITOR1" == "true" ]; then
+  if [ "$EDITOR1_1" == "true" ]; then
     arch-chroot /mnt /bin/bash -c "pacman -S neovim --noconfirm"
+  fi
+
+  if [ "$EDITOR1_2" == "true" ]; then
+    arch-chroot /mnt /bin/bash -c "sudo pacman -S base-devel cmake unzip ninja tree-sitter curl --noconfirm"
+    arch-chroot /mnt /bin/bash -c "git clone https://github.com/neovim/neovim"
+    arch-chroot /mnt /bin/bash -c "cd neovim && make CMAKE_BUILD_TYPE=Release"
+    arch-chroot /mnt /bin/bash -c "sudo make install"
   fi
 
   if [ "$EDITOR2" == "true" ]; then

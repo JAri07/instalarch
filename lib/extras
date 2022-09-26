@@ -142,8 +142,32 @@ fuc_codeeditors () {
     do
       case $choice in
         1)
-          EDITOR1=true
+          cmd=(dialog --keep-tite --backtitle "${title}" \
+          --no-collapse --cr-wrap --column-separator "|" --no-tags \
+          --ok-label '< Seleccionar >' --nocancel --menu "\n \
+          Selecciona una opción para Neovim \n " 12 60 20)
+
+          options=(1 "   Neovim || Package  "
+                   2 "   Neovim || From Source ")
+
+          choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+          for choice in $choices
+            do
+              case $choice in
+
+                  1)
+                    EDITOR1_1=true
+                    ;;
+
+                  2)
+                    EDITOR1_2=true
+                    ;;
+
+              esac
+            done
           ;;
+
         2)
           EDITOR2=true
           ;;
