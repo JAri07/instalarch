@@ -37,7 +37,6 @@ installgrub1 () {
     echo 'Lea bien que no tenga ningún error marcado' 
     echo '> Confirme tener las IMG de linux para el arranque' 
     echo '> Confirme tener la carpeta de GRUB para el arranque' 
-    mensaje_install
     sleep 3
     clear
   else
@@ -67,7 +66,6 @@ installgrub1 () {
     echo 'Lea bien que no tenga ningún error marcado' 
     echo '> Confirme tener las IMG de linux para el arranque' 
     echo '> Confirme tener la carpeta de GRUB para el arranque'
-    mensaje_install
     sleep 3
     clear
   fi
@@ -112,7 +110,6 @@ installgrub3 () {
     echo 'Lea bien que no tenga ningún error marcado' 
     echo '> Confirme tener las IMG de linux para el arranque' 
     echo '> Confirme tener la carpeta de GRUB para el arranque' 
-    mensaje_install
     sleep 3
     clear
   else
@@ -147,7 +144,6 @@ installgrub3 () {
     echo 'Lea bien que no tenga ningún error marcado' 
     echo '> Confirme tener las IMG de linux para el arranque' 
     echo '> Confirme tener la carpeta de GRUB para el arranque'
-    mensaje_install
     sleep 3
     clear
   fi
@@ -260,7 +256,6 @@ echo ''
 echo 'Lea bien que no tenga ningún error marcado' 
 echo '> Confirme tener las IMG de linux para el arranque' 
 echo '> Confirme tener la carpeta de GRUB para el arranque' 
-mensaje_install
 sleep 3
 clear
 ######################################################
@@ -292,7 +287,6 @@ echo ''
 echo 'Lea bien que no tenga ningún error marcado' 
 echo '> Confirme tener las IMG de linux para el arranque' 
 echo '> Confirme tener la carpeta de GRUB para el arranque'
-mensaje_install
 sleep 3
 clear
 fi

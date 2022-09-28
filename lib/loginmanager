@@ -37,7 +37,8 @@ installLoginManager () {
       echo "" 
       echo "Se esta instalando LY:" 
       echo "" 
-      arch-chroot /mnt /bin/bash -c "pacman -Syu --noconfirm"
+      arch-chroot /mnt /bin/bash -c "pacman -Syu ly --noconfirm"
+      arch-chroot /mnt /bin/bash -c "systemctl enable ly"
       ;;
 
     "lightdm")
@@ -54,7 +55,7 @@ installLoginManager () {
 
     "sddm")
       echo "" 
-      echo "Se esta instalando el SDDM:" 
+      echo "Se esta instalando SDDM:" 
       echo "" 
 
       arch-chroot /mnt /bin/bash -c "pacman -S sddm --needed --noconfirm"
