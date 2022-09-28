@@ -136,10 +136,12 @@ main () {
           9)
             source lib/loginmanager
             loginManager
+            current_item="10"
+            ;;
           10)
             source lib/extras
             extraprogram
-            current_item="10"
+            current_item="11"
             ;;
 
           11)

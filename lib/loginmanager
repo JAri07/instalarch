@@ -2,7 +2,7 @@
 
 loginManager () {
 
-  LG=""
+  LG="ly"
 
   cmd=(dialog --keep-tite --no-collapse --cr-wrap --backtitle "${title}" --title "-| Login Manager |-" --column-separator "|" --no-tags --ok-label '< Seleccionar >' --nocancel --menu "\nElige una opción\n " 12 50 12)
 
@@ -26,10 +26,6 @@ loginManager () {
           ;;
       esac
     done
-
-    if LG = "" then
-      LG="ly"
-    fi
 }
 
 
