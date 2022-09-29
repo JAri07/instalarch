@@ -49,7 +49,6 @@ environment () {
                   DE="Xfce4"
                   ;;
 
-
                 2)
                   cmd=(dialog --keep-tite --backtitle "${title}" \
                   --no-collapse --cr-wrap --column-separator "|" --no-tags \
@@ -937,7 +936,10 @@ installenvironment () {
     echo "Se esta instalando el entorno Awesome:" 
     echo "" 
 
-    arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S paru --noconfirm"
+    # arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S paru --noconfirm"
+    arch-chroot /mnt /bin/bash -c "git clone https://aur.archlinux.org/paru.git"
+    arch-chroot /mnt /bin/bash -c "cd paru && makepkg -si"
+    arch-chroot /mnt /bin/bash -c "cd .."
     arch-chroot /mnt /bin/bash -c "pacman -S xorg --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S xorg-apps --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S xorg-server --noconfirm"
@@ -945,11 +947,11 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "pacman -S xorg-twm --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S xterm --noconfirm"
 
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -S awesome-git --noconfirm"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -Sy picom-git wezterm rofi acpi acpid acpi_call upower lxappearance-gtk3 --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -Sy jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru pipewire pipewire-alsa pipewire-pulse alsa-utils brightnessctl feh --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru -S awesome-git --noconfirm"
+    arch-chroot /mnt /bin/bash -c "sudo paru -Sy picom-git wezterm rofi acpi acpid acpi_call upower lxappearance-gtk3 --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru -Sy jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru pipewire pipewire-alsa pipewire-pulse alsa-utils brightnessctl feh --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
     arch-chroot /mnt /bin/bash -c "systemctl --user enable mpd.service"
     arch-chroot /mnt /bin/bash -c "systemctl --user start mpd.service"
     arch-chroot /mnt /bin/bash -c "git clone --depth 1 --recurse-submodules https://github.com/rxyhn/yoru.git"
@@ -966,7 +968,11 @@ installenvironment () {
     echo "Se esta instalando el entorno Awesome:" 
     echo "" 
 
-    arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S paru --noconfirm"
+    # arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S paru --noconfirm"
+    arch-chroot /mnt /bin/bash -c "echo $PWD"
+    arch-chroot /mnt /bin/bash -c "git clone https://aur.archlinux.org/paru.git"
+    arch-chroot /mnt /bin/bash -c "cd paru && makepkg -si"
+    arch-chroot /mnt /bin/bash -c "cd .."
     arch-chroot /mnt /bin/bash -c "pacman -S xorg --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S xorg-apps --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S xorg-server --noconfirm"
@@ -975,11 +981,11 @@ installenvironment () {
     arch-chroot /mnt /bin/bash -c "pacman -S xterm --noconfirm"
     arch-chroot /mnt /bin/bash -c "pacman -S network-manager-applet --noconfirm --needed"
 
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -S awesome-git --noconfirm"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -Sy picom-git rofi acpi acpid acpi_call upower lxappearance-gtk3 --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru -Sy jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru pipewire pipewire-alsa pipewire-pulse alsa-utils brightnessctl feh --noconfirm --needed"
-    arch-chroot /mnt /bin/bash -c "sudo -u $username paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru -S awesome-git --noconfirm"
+    arch-chroot /mnt /bin/bash -c "sudo paru -Sy picom-git rofi acpi acpid acpi_call upower lxappearance-gtk3 --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru -Sy jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru pipewire pipewire-alsa pipewire-pulse alsa-utils brightnessctl feh --noconfirm --needed"
+    arch-chroot /mnt /bin/bash -c "sudo paru maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --noconfirm --needed"
     arch-chroot /mnt /bin/bash -c "systemctl --user enable mpd.service"
     arch-chroot /mnt /bin/bash -c "systemctl --user start mpd.service"
     arch-chroot /mnt /bin/bash -c "git clone --depth 1 --recurse-submodules https://github.com/JAri07/yoru.git"
